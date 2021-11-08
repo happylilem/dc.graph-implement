@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Know Milk</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/page.css" />
+    <link rel="stylesheet" href="pickle/pickle.css" />
+    <link rel="icon" href="images/favicon.png" />
+<!-- From d3graph.js -->
+    <link rel="stylesheet" type="text/css" href="css/dc.graph.css"/>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="css/dc.css"/>
+    <link rel="stylesheet" type="text/css" href="css/d3-tip.css"/>
+    <link rel="stylesheet" type="text/css" href="css/example-common.css"/>
+    <link rel="stylesheet" type="text/css" href="css/brushing-filtering.css">
+
+    <script type="text/javascript" src="js/d3.js"></script>
+    <script type="text/javascript" src="js/crossfilter.js"></script>
+    <script type="text/javascript" src="js/dc.js"></script>
+    <script type="text/javascript" src="js/d3-tip.js"></script>
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/lodash.js"></script>
+    <script type="text/javascript" src="js/promise-polyfill.js"></script>
+
+    <script type="text/javascript" src="js/cola.js"></script>
+    <script type="text/javascript" src="js/dagre.js"></script>
+    <script type="text/javascript" src="js/d3v4-force.js"></script>
+    <script type="text/javascript" src="js/viz.js"></script>
+    <script type="text/javascript" src="js/chart.registry.js"></script>
+    <script type="text/javascript" src="js/dc.graph.js"></script>
+
+    <script type="text/javascript" src="js/graphlib-dot.js"></script>
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/querystring.js"></script>
+    <script type="text/javascript" src="js/sync-url-options.js"></script>
+    <script type="text/javascript" src="js/dc.graph.tracker.domain.js"></script>
+
+
+  </head>
+  <body>
+  <div class="full-screen">
+  	<div class="header">Know/Food/Milk/Biomolecules/Oligosaccharides</div>
+  	<div class="main">
+  		  <div class="left" id="element">
+          <div class="w3-container" id="w31">
+              <h5>Enlighten & Filter</h5>
+
+                <button class="accordion">Animals</button>
+                <div class="panel">
+                    <div id="div_treeAnimal" class="tree"></div>
+                    <label>Add New Item</label>
+                    <div></div>
+                    <div style="display: flex;justify-content: space-between;flex-direction: row;"></div>
+                    <input id="in_item" class="form-control form-control-sm" type="text"/>
+                    <button id="btn_add" class="btn btn-sm btn-danger" style="margin-left: 5px;">Add</button>
+                      <button id="btn_getSelected"
+                              class="btn btn-sm btn-danger"
+                              style="margin-left: 10px;">Get Selected</button>
+                    <label>Log</label>
+                    <textarea id="txt_log" rows="0" class="form-control"> </textarea>
+                </div>
+                    <button class="accordion">Authors</button>
+                    <div class="panel">
+                        <div id="div_treeAuthors" class="tree"></div>
+                    </div>
+                    <button class="accordion">Location</button>
+                    <div class="panel">
+                        <div id="div_treeLocation" class="tree"></div>
+                    </div>
+                    <button class="accordion">Methods</button>
+                    <div class="panel">
+                        <div id="div_treeMethods" class="tree"></div>
+                    </div>
+                    <button class="accordion">Publication</button>
+                    <div class="panel">
+                        <div id="div_treePublication" class="tree"></div>
+                    </div>
+          </div>
+		</div>
+		<div class="middle">
+      Know Food: Milk Oligosaccharide Graphlet
+      <script type="text/javascript" src="js/example-header.js"></script>
+      <div id="controls">
+        <div id="left-controls">
+          <select id="layout"></select>&nbsp;&nbsp;&nbsp;
+          <select id="number"></select>
+          <div id="cutoff-stuff" style="display: none">
+            <label for="cutoff">&nbsp;Edge cutoff:&nbsp;</label>
+            <div style="display: inline-block">
+              <input id="cutoff" type="range" min="0" max="1" step="0.05" style="width: 10em">
+            </div>&nbsp;
+            <span id="cutoff-display"></span>&nbsp;&nbsp;&nbsp;
+          </div>
+          <input id="graphviz-attrs" type="checkbox">
+          <label for="graphviz-attrs">&nbsp;Use graphviz
+            <a href="https://graphviz.org/doc/info/attrs.html" target=_blank>attrs</a>
+          </label>
+        </div>
+        <div id="middle-controls"></div>
+        <div id="right-controls">
+          <label for='#user-file' title="in-browser: nothing uploaded to server">Load file&nbsp;</label>
+          <input type="file" id="user-file" style="display: inline" title="in-browser: nothing uploaded to server">
+            <a id="data-link" target="dcgraph-datalink" style="font-size: 8px" href='#'>DATA LINK</a>
+        </div>
+      </div>
+    </div>
+		<div class="right">
+      Settings
+      <div id="graph" class="chart"></div>
+      <div id="charts">
+          <div id="pie"></div>
+          <div id="row"></div>
+      </div>
+    </div>
+    </div>
+	  <div class="footer">Footer</div>
+
+</body>
+<script src="pickle/pickle.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"> </script>
+<script type="module">
+    import {picklePage} from './pickle/pickleTree.js';
+    const ptpage = new picklePage();
+    /* JavaScript module code here */
+</script>
+<script>
+  var acc = document.getElementsByClassName("accordion");
+  var i;
+
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var panel = this.nextElementSibling;
+      if (panel.style.display === "block") {
+        panel.style.display = "none";
+      } else {
+        panel.style.display = "block";
+      }
+    });
+  }
+</script>
+<script>
+var element = document.getElementById('element');
+var elemHeight = document.getElementById('w31') +  'px';
+var resizer = document.createElement('div');
+resizer.className = 'resizer';
+resizer.style.width = '17px';
+resizer.style.height = '100%';
+// resizer.style.background = 'red';
+resizer.style.background = 'linear-gradient(270deg, rgb(239 254 239 / 33%), rgba(255, 255, 255, 0.25))';
+resizer.style.position = 'absolute';
+resizer.style.overflow = 'inherit';
+resizer.style.top = 0;
+resizer.style.right = 0;
+resizer.style.cursor = 'col-resize';
+element.appendChild(resizer);
+resizer.addEventListener('mousedown', initResize, false);
+
+function initResize(e) {
+   window.addEventListener('mousemove', Resize, false);
+   window.addEventListener('mouseup', stopResize, false);
+}
+function Resize(e) {
+   element.style.width = (e.clientX - element.offsetLeft) + 'px';
+   resize.style.height = (element.style.height) +  'px';
+}
+function stopResize(e) {
+    window.removeEventListener('mousemove', Resize, false);
+    window.removeEventListener('mouseup', stopResize, false);
+}
+</script>
+<!-- <script>
+function getChecked() {
+  var treeAnimal = document.getElementById("div_treeAnimal");
+  var selAnimal = treeAnimal.getSelected();
+  var checkedBoxes = document.querySelectorAll('input[id=div_treeAnimal]:checked');
+  alert('wahoo');
+}
+</script> -->

@@ -1,0 +1,165 @@
+.flex-container {
+  display: flex;
+  overflow: hidden;
+}
+.flex-container > * {
+  flex: 0 0 auto;
+  overflow: scroll;
+}
+.stretchy {
+  flex: 1 1 auto;
+}
+.column {
+  flex-direction: column;
+}
+html,
+body,
+.full-screen {
+  height: 100%;
+}
+body {
+  margin: 0;
+}
+.full-screen {
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+}
+.full-screen > * {
+  flex: 0 0 auto;
+  overflow: scroll;
+}
+.full-screen > .header,
+.full-screen > .footer {
+  height: 50px;
+  background: #555;
+  color: white;
+}
+.full-screen > .main {
+  flex: 1 1 auto;
+  display: flex;
+  overflow: hidden;
+}
+.full-screen > .main > * {
+  flex: 0 0 auto;
+  overflow: scroll;
+}
+.full-screen > .main > .left {
+  margin-left:1%;
+  width: 15%;
+  min-width: 2%;
+  background: #eeffeef2;
+  resize: horizontal;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  display: inline-block;
+}
+.full-screen > .main > .right {
+  width: 15%;
+  background: #eee;
+  resize: horizontal;
+  overflow: scroll;
+}
+.full-screen > .main > .middle {
+  width: 70%;
+  background: linear-gradient(-90deg, rgba(0,123,255,0.22), rgba(255,255,255,0.25));
+  background-color: #eeffeef2;
+  resize: horizontal;
+  box-shadow: 3px 1px 1px 0 rgba(0, 0, 0, 0.25),
+                -8px -8px 8px 0 rgba(255, 255, 255, 0.3)
+}
+.w3-container{
+    min-width: 100px;
+    width: 98%;
+    overflow: hidden ;
+
+}
+
+/* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+  min-width: 160px;
+  color: #444;
+  cursor: pointer;
+  padding: 7px;
+  width: 98%;
+  text-align: left;
+  border: none;
+  display: inline-block;
+  outline: none;
+  transition: 0.4s;
+  box-shadow: 3px 2px 4px 0 rgba(0, 0, 0, 0.25),
+              -8px -8px 8px 0 rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  justify-content: center;
+  background: linear-gradient(90deg, rgba(0,123,255,0.22), rgba(255,255,255,0.25));
+  background-color: #bcddf4;
+}
+/* Add a background color to the button if it is clicked on (add the
+.active class with JS), and when you move the mouse over it (hover) */
+.active, .accordion:hover {
+  background-color: #efe;
+  min-width: 160px;
+}
+.accordion:after {
+
+  content: '\002B';
+  color: #007bff;
+  font-weight: bold;
+  float: right;
+  margin-right:  30px;
+}
+
+.active:after {
+  content: "\2212";
+}
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+  padding-bottom: 5px;
+  margin-left:2px;
+  background-color: #bcddf4;
+  display: none;
+  overflow: inherit ;
+  width: 100%;
+  resize:inherit;
+  background: linear-gradient(90deg, rgba(0,123,255,0.22), rgba(255,255,255,0.25));
+  transition: max-height 0.4s ease-out;
+}
+div {
+  position: relative;
+  overflow: hidden;
+  min-width: 10%;
+}
+
+body {
+    overflow: hidden;
+}
+#main {
+    position: absolute;
+    left: 0; top: 0; right: 0; bottom: 0;
+    display: flex;
+    flex-direction: column;
+}
+#controls {
+    margin: 1em;
+    display: flex;
+    flex-direction: row;
+}
+
+#middle-controls {
+    flex: 1;
+}
+
+#right-controls {
+    z-index: 10;
+}
+#graph {
+    flex: 1;
+}
+#message {
+    position: absolute;
+    left: 0; top: 0; right: 0; bottom: 0;
+    background-color: rgba(255,255,255, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

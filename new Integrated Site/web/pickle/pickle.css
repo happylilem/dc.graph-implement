@@ -1,0 +1,125 @@
+.tree .switch{
+	position:relative;
+  display:inline-block;
+  width:30px;
+  height:12px;
+  margin:0;
+  }
+.tree .switch input{
+  opacity:0;
+  width:0;
+  height:0
+  }
+.tree .slider{
+  position:absolute;
+  cursor:pointer;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background-color:#ff620073;
+  -webkit-transition:0.4s;
+  transition:0.4s
+  }
+.tree .slider:before{
+  position:absolute;
+  content:"";
+  height:12px;
+  width:12px;
+  left:3px;
+  bottom:0px;
+  background-color:white;
+  -webkit-transition:0.4s;
+  transition:0.4s
+  }
+.tree input:checked+.slider{background-color:#1af71a}
+.tree input:focus+.slider{box-shadow:0 0 1px #2196F3}
+.tree input:checked+.slider:before{
+	-webkit-transform:translateX(13.5px);
+  -ms-transform:translateX(13.5px);
+  transform:translateX(13.5px)
+  }
+.tree .slider.round{border-radius:34px}
+.tree .slider.round:before{border-radius:50%}
+.tree ul li{
+	list-style-type:none;
+	margin-left:-20px
+	}
+.tree ul li div{
+  display:flex;
+  list-style-type:none;
+  margin:-2px;
+  border-radius:5px;
+  border:0px solid #e0dfdf63;
+  padding:0px;
+  align-items:center;
+  }
+.tree ul li div:hover,.tree ul li div:hover a{
+  border-radius:5px;
+  background-color: #bddef4;
+  }
+.tree ul li a{
+  margin-right:5px;
+  margin-left:5px;
+  color:black;
+  font-size:13px;
+  font-family:arial, 'Open Sans';
+  text-decoration:none}
+.tree .menuIcon{
+  margin-right:-15px;
+  color:black;
+}
+.treemenuCont{
+	display:flex;
+  flex-direction:column;
+  background-color: #eeffeef2;
+  border:1px solid #007bff;
+  border-radius:5px;
+  color:#007bff;
+  position:fixed;
+  font-size:12px;
+  font-family:arial, 'Open Sans'}
+.treemenuCont span{
+  padding:5px;
+  border-radius:1px;
+  border-bottom:1px solid #007bff;
+  display:flex;
+  align-items:baseline;
+  cursor:pointer
+  }
+.treemenuCont span i{
+	color:#0062cc;
+  padding-right:3px
+  }
+.treemenuCont span:last-child{border-bottom:0 solid}
+.treemenuCont span:last-child:hover{border-radius:0 0 1px 1px}
+.treemenuCont span:first-child:hover{border-radius:1px 1px 0 0}
+.treemenuCont span:hover{
+	background:rgba(0,123,255,.25);
+	color:#444}
+.tree .menuIcon i{pointer-events:none}
+.tree .drag-handler{color: brown;}
+.tree .drag-handler i{pointer-events:none}
+.tree .drag_triggered{border:3px dotted red}
+.tree #div_ddetail{width:120px;
+  background-color:#555;
+  color:#fff;
+  text-align:left;
+  padding:5px;
+  border-radius:6px;
+  z-index:1
+  }
+.tree #div_ddetail span{
+  font-size:larger;
+  margin:3px 5px}
+.tree{
+  border:0px solid black;
+  margin:10px 10px;
+  min-width: 283px;
+  width: 97%;
+  /*overflow: inherit;*/
+  border:none;}
+.tree .valid{border:3px solid green}
+.tree .invalid{border:3px solid #ef606b}
+.disabled > *{pointer-events:none}
+.treemenuCont i{pointer-events:none}
